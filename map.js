@@ -4,7 +4,7 @@
 
   Requires in the <head>:
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY">
+  <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY"></script>
 
   Requires this file referenced in the bottom of <body>:
 
