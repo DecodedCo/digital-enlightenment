@@ -10,7 +10,7 @@
 
   <script src="map.js"></script>
 
-  Requires <div id="map"></div> where you want to place the map
+  Requires <div id="map"></div> where you want to place the map, with a height specified in the CSS file
 
 */
 
