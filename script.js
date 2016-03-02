@@ -1,5 +1,5 @@
 // What time is it?
-var now = new Date;
+var now = new Date();
 
 // Check the current time as 24 hour clock e.g. 18 hours = 6pm
 if (now.getHours() > 18) {
