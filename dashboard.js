@@ -130,8 +130,7 @@ function render(data){
 
 */
 
-//var socket = io('127.0.0.1:5000/' + sensor);
-var socket = io('https://labs.decoded.com/tech/sensor-api/' + sensor);
+var socket = io('https://decoded-tech-sensor-api.herokuapp.com/' + sensor);
 socket.on('data', function(data){
   render(data);
 });
