@@ -1,46 +1,32 @@
+var locationLat = 32.774105;
+var locationLon = -96.804247;
+
+// options are: temperature, pressure, vibration
+var sensor = "temperature";
 
 /*
 
-  Plot a Google Map with Live Traffic
-
-  Requires in the <head>:
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY">
-
-  Requires this file referenced in the bottom of <body>:
-
-  <script src="map.js"></script>
-
-  Requires <div id="map"></div> where you want to place the map
+  Google Map with Live Traffic
 
 */
 
 var map = new google.maps.Map(document.getElementById('map'), {
   zoom: 13,
-  center: {lat: 32.774105, lng: -96.804247}
+  center: {lat: locationLat, lng: locationLon}
 });
 
 var trafficLayer = new google.maps.TrafficLayer();
 trafficLayer.setMap(map);
 
-
 /*
 
-  Show Live Weather Data
-
-  Requires jQuery in the <head>:
-
-  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-  Requires this file referenced in the bottom of <body>:
-
-  <script src="weather.js"></script>
-
-  Requires <div id="weather"></div> where you want to place the weather
+  Live Weather Data
 
 */
 
-var url = '/weather/data/2.5/weather?units=imperial&APPID=eb0b0a65c39e86c2a2efdebd2fe090cc&q=Dallas';
+var url = '/weather/data/2.5/weather?units=imperial&APPID=eb0b0a65c39e86c2a2efdebd2fe090cc&lat='+locationLat+'&lon='+locationLon;
+
+//var url = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=eb0b0a65c39e86c2a2efdebd2fe090cc&lat='+locationLat+'&lon='+locationLon;
 
 jQuery.getJSON(url)
   .done( function (data) {
@@ -55,7 +41,7 @@ jQuery.getJSON(url)
 
 /*
 
-  Show Live Sensor Data
+  Live Sensor Data
 
 */
 
@@ -81,40 +67,26 @@ var line = d3.svg.line().interpolate("monotone")
   .x(function(d){ return xScale(d.x); })
   .y(function(d){ return yScale(d.y); });
 
+render();
+
+// continuous page render
+setInterval(render, 500);
+
+// bring in sensor data and render graph
 function render(){
-  // get new data
-  //var data = newData();
 
   $.ajax({
-    url: "https://labs.decoded.com/tech/sensor-api/", // Replace the URL here
+    url: "https://labs.decoded.com/tech/sensor-api/",
+    //url: "http://127.0.0.1:5000/" + sensor,
     type: "GET",
     success: function(d){
       var data = d;
       var newData = [[]];
-      ;
 
-// Begin injected loop protection init
-var __DECODED_TIMER_5y = Date.now();
-var __DECODED_ITERATIONS_5y = 0;
-// End injected loop protection init
-
-for(i=0; i<data.length; i++){
+      for(i=0; i<data.length; i++){
         xpos = data[i].x/100;
         ypos = data[i].y;
-        newData[0].push({x:xpos, y:ypos});;
-
-// Begin injected loop protection
-++__DECODED_ITERATIONS_5y;
-if ((__DECODED_ITERATIONS_5y > 50) && (Date.now() - __DECODED_TIMER_5y > 100)) {
-  if (confirm("Uh oh! Looks like you've got an infinite loop on line 33. Do you want to stop it?")) {
-    break;
-  } else {
-    __DECODED_TIMER_5y = Date.now();
-    __DECODED_ITERATIONS_5y = 0;
-  }
-};
-// End injected loop protection
-
+        newData[0].push({x:xpos, y:ypos});
       }
 
       // obtain absolute min and max
@@ -165,10 +137,3 @@ if ((__DECODED_ITERATIONS_5y > 50) && (Date.now() - __DECODED_TIMER_5y > 100)) {
     }); // end of ajax
 
 } // end of render
-
-// initial page render
-//render("https://labs.decoded.com/tech/sensor-api/");
-render();
-
-// continuous page render
-setInterval(render, 200);
