@@ -76,7 +76,7 @@ setInterval(render, 500);
 function render(){
 
   $.ajax({
-    url: "https://labs.decoded.com/tech/sensor-api/" + sensor,
+    url: "https://labs.decoded.com/tech/sensor-api/" + sensor + "/",
     //url: "http://127.0.0.1:5000/" + sensor,
     type: "GET",
     success: function(d){
