@@ -1,0 +1,72 @@
+
+section {
+  clear: both;
+}
+
+article {
+  overflow: hidden;
+}
+
+#map {
+  height: 40%;
+}
+
+img {
+  max-width: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+#weather img {
+  margin: 0;
+}
+
+#weather {
+  margin-left: 50px;
+  font-size: 1.2em;
+}
+
+label {
+  font-weight: bold;
+}
+
+body {
+  background-image: url(http://216.70.89.205/wp-content/uploads/Dallas_smaller1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+article {
+  background-color: rgba(255,255,255,0.7);
+  padding: 10px;
+  margin: 10px;
+  width: calc(100% - 40px);
+  float:left;
+}
+
+h1 {
+  margin-top: 0;
+  font-family: 'Poiret One', cursive;
+}
+
+#sensor .axis path,
+#sensor .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+#sensor .x.axis path {
+  display: none;
+}
+
+#sensor .line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+
+@media (min-width: 480px) {
+  article {
+    width: calc(50% - 40px);
+  }
+}

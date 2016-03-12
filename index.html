@@ -1,0 +1,53 @@
+<html>
+<head>
+  <!-- Fix Viewport on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Homescreen icon for web app -->
+  <link rel="apple-touch-icon" href="//assets.decoded.com/images/apple-touch-icon.png">
+  <link rel="icon" sizes="296x296" href="//assets.decoded.com/images/apple-touch-icon.png">
+  <!-- Fullscreen Mode for web app -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Dashboard Title</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <link href="dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <section>
+    <article>
+      <h1>Location Name</h1>
+
+      <p>Brief description of location</p>
+
+      <img class="logo" src="//assets.decoded.com/images/decoded-round.png">
+    </article>
+
+    <article>
+      <h1>Live Traffic</h1>
+      <div id="map"></div>
+    </article>
+  </section>
+
+  <section>
+    <article>
+      <h1>Live Weather</h1>
+      <div id="weather"></div>
+    </article>
+
+    <article>
+      <h1>Live Sensor Data</h1>
+      <div id="sensor"></div>
+    </article>
+  </section>
+
+  <!-- Load JavaScript -->
+  <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDjCorisFcqtwJDwk5vw-Xuj1tWVYxj_jk"></script>
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="dashboard.js"></script>
+
+</body>
+</html>

@@ -1,20 +1,23 @@
-Digital Enlightenment in a Day Boilerplate
+Sensor Dashboard Boilerplate
 =========================
 
-This boilerplate helps attendees get going with their Digital Enlightenment dashboards. It includes the following files.
+This boilerplate helps attendees get going with their sensor-driven dashboards. It includes the following files.
 
 ## HTML
 
-#### mobile.html
+#### index.html
 
-Boilerplate to optimize page for mobile web app experience
+Boilerplate for the dashboard content
+
+## CSS
+
+#### dashboard.css
+
+Boilerplate for dashboard design
 
 ## JavaScript
 
-#### map.js
+#### dashboard.js
 
-Boilerplate to add a Google Map with Live Traffic
+Boilerplate to add a Google Map with Live Traffic, Live Weather and Live Sensor Feed
 
-#### weather.js
-
-Boilerplate to add live weather data from OpenWeatherMap API
