@@ -1,3 +1,8 @@
+body {
+  background-image: url(http://216.70.89.205/wp-content/uploads/Dallas_smaller1.jpg);
+  background-size: cover;
+  background-position: center;
+}
 
 section {
   clear: both;
@@ -28,12 +33,6 @@ img {
 
 label {
   font-weight: bold;
-}
-
-body {
-  background-image: url(http://216.70.89.205/wp-content/uploads/Dallas_smaller1.jpg);
-  background-size: cover;
-  background-position: center;
 }
 
 article {
