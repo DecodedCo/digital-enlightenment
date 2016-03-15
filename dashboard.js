@@ -26,18 +26,17 @@ trafficLayer.setMap(map);
 
 var url = '/weather/data/2.5/weather?units=imperial&APPID=eb0b0a65c39e86c2a2efdebd2fe090cc&lat='+locationLat+'&lon='+locationLon;
 
-//var url = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=eb0b0a65c39e86c2a2efdebd2fe090cc&lat='+locationLat+'&lon='+locationLon;
-
 jQuery.getJSON(url)
   .done( function (data) {
-  jQuery('#weather').html('<img src="http://openweathermap.org/img/w/' + data.weather[0].icon + '.png">' +
-    '<p>' + data.main.temp + ' F</p>' +
-    '<p><label>Max:</label> ' + data.main.temp_max + ' F</p>' +
-    '<p><label>Min:</label> ' + data.main.temp_min + ' F</p>' +
-    '<p><label>Humidity:</label> ' + data.main.humidity + '%</p>' +
-    '<p><label>Wind Speed:</label> ' + data.wind.speed + ' mph</p>' +
-    '<p><label>Visibility:</label> ' + data.main.pressure + ' mb</p>');
-});
+    jQuery('#weather').html('<img src="http://openweathermap.org/img/w/' + 
+      data.weather[0].icon + '.png">' +
+      '<p>' + data.main.temp + ' F</p>' +
+      '<p><label>Max:</label> ' + data.main.temp_max + ' F</p>' +
+      '<p><label>Min:</label> ' + data.main.temp_min + ' F</p>' +
+      '<p><label>Humidity:</label> ' + data.main.humidity + '%</p>' +
+      '<p><label>Wind Speed:</label> ' + data.wind.speed + ' mph</p>' +
+      '<p><label>Visibility:</label> ' + data.main.pressure + ' mb</p>');
+  });
 
 /*
 
@@ -46,29 +45,50 @@ jQuery.getJSON(url)
 */
 
 var width = 600,
-    height = 300;
+  height = 300;
 
 var margin = {top: 20, right:20, bottom:20, left:50};
 
+var yrange = {
+  "temperature": {
+    "min": 50,
+    "max": 120
+  },
+  "vibration": {
+    "min": 100,
+    "max": 200
+  },
+  "pressure": {
+    "min": 900,
+    "max": 1100
+  }
+}
+  
+var ylabel = {
+  "temperature" : "F",
+  "vibration" : "Hz",
+  "pressure" : "mb" 
+};
+
 // draw and append the container
 var svg = d3.select("#sensor").append("svg")
-    .attr("height", height)
-    .attr("width", width)
-    .append("g")
-      .attr("transform","translate(" + margin.left + "," + margin.right + ")");
+  .attr("height", height)
+  .attr("width", width)
+  .append("g")
+  .attr("transform","translate(" + margin.left + "," + margin.right + ")");
 
 var xScale = d3.scale.linear()
-      .range([0,width - margin.left - margin.right]);
+  .range([0,width - margin.left - margin.right]);
 
 var yScale = d3.scale.linear()
-      .range([height - margin.top - margin.bottom,0]);
+  .range([height - margin.top - margin.bottom,0]);
 
 var line = d3.svg.line().interpolate("monotone")
   .x(function(d){ return xScale(d.x); })
   .y(function(d){ return yScale(d.y); });
 
 // bring in sensor data and render graph
-function render(data){
+function render(data,sensor){
 
   var newData = [[]];
 
@@ -78,27 +98,26 @@ function render(data){
     newData[0].push({x:xpos, y:ypos});
   }
 
-  // obtain absolute min and max
-  var yMin = newData.reduce(function(pv,cv){
-    var currentMin = cv.reduce(function(pv,cv){
-      return Math.min(pv,cv.y);
-    },0)
-    return Math.min(pv,currentMin);
-  },0);
-  var yMax = 100;
+  yMin = yrange[sensor].min;
+  yMax = yrange[sensor].max;
 
   // set domain for axis
   yScale.domain([yMin,yMax]);
 
   // create axis scale
   var yAxis = d3.svg.axis()
-      .scale(yScale).orient("left");
+    .scale(yScale).orient("left");
 
   // if no axis exists, create one, otherwise update it
   if (svg.selectAll(".y.axis")[0].length < 1 ){
     svg.append("g")
-        .attr("class","y axis")
-        .call(yAxis);
+      .attr("class","y axis")
+      .call(yAxis);
+
+    svg.append("text")
+      .attr("transform","translate(10)")
+      .text(ylabel[sensor]);
+
   } else {
     svg.selectAll(".y.axis").transition().duration(200).call(yAxis);
   }
@@ -132,5 +151,5 @@ function render(data){
 
 var socket = io('https://decoded-tech-sensor-api.herokuapp.com/' + sensor);
 socket.on('data', function(data){
-  render(data);
+  render(data,sensor);
 });
