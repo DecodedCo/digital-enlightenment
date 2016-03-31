@@ -20,11 +20,11 @@ function foundYou(yourPosition){
 
   // Make an ajax request to the uber api
   $.ajax({
-		url: apiUrl,
+    url: apiUrl,
     // Authorization Token is required for requests to uber api
     // This token comes from https://developers.uber.com
-		headers: {"Authorization": "Token VYkyBdIrlfBxksBZm22XtMWhhbZLTFxqbX1WiDNY"},
-		success: printUberTime
+    headers: {"Authorization": "Token VYkyBdIrlfBxksBZm22XtMWhhbZLTFxqbX1WiDNY"},
+    success: printUberTime
 	});
   
 } // END foundYou
