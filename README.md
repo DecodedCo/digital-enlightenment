@@ -1,20 +1,10 @@
-Digital Enlightenment in a Day Boilerplate
+Demystifying Digital Boilerplate
 =========================
 
-This boilerplate helps attendees get going with their Digital Enlightenment dashboards. It includes the following files.
+This boilerplate will help you get your reward apps going.
 
-## HTML
+# 1. Realtime Countdown
 
-#### mobile.html
+## countdown.js
 
-Boilerplate to optimize page for mobile web app experience
-
-## JavaScript
-
-#### map.js
-
-Boilerplate to add a Google Map with Live Traffic
-
-#### weather.js
-
-Boilerplate to add live weather data from OpenWeatherMap API
+Boilerplate to use jQuery.countdown plugin.
