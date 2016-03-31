@@ -7,4 +7,8 @@ This boilerplate will help you get your reward apps going.
 
 ## countdown.js
 
-Boilerplate to use jQuery.countdown plugin.
+Boilerplate to add realtime countdown. Requires both jQuery and the jQuery.countdown plugin.
+
+## helper.html
+
+Boilerplate to optimise page for mobile web app experience.
