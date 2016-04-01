@@ -1,5 +1,5 @@
   // Tell user we are calculating uber time at the end of the section
-  jQuery('section').append('<p id="uber">Calculating how long until an uber can arrive...</p>');
+  jQuery('section').append('<p id="uber">Calculating how long until an Uber can arrive...</p>');
   
   // Find the user using the HTML5 Geolocation API
   watchUser = navigator.geolocation.watchPosition(foundYou);
@@ -35,6 +35,5 @@
     var timeInSeconds = response.times[0].estimate
   
     // Update the paragraph with an id of "uber" to show the time estimate
-    jQuery('p#uber').html('Catch an <a href="uber://">Uber</a> to join us, it will take ' + timeInSeconds + ' seconds to arrive');
-  
+    jQuery('p#uber').html('Catch an <a href="uber://" style="text-decoration: none">Uber</a> to join us, it will take ' + timeInSeconds + ' seconds to arrive.');  
   } // END printUberTime
