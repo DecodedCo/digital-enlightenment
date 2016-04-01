@@ -1,17 +1,17 @@
-// Tell user we are calculating uber time
+// Tell user we are calculating uber time at the end of the section
 jQuery('section').append('<p id="uber">Calculating how long until an uber can arrive...</p>');
 
-// Watch the user's location
+// Find the user using the HTML5 Geolocation API
 watchUser = navigator.geolocation.watchPosition(foundYou);
 
-// Our function to pass to watchPosition when it finds user
+// When the user is found, run the following
 function foundYou(yourPosition){
 
   // Store user's location
   var userLat = yourPosition.coords.latitude;
   var userLon = yourPosition.coords.longitude;
 
-  //See how long it would take for an Uber to arrive
+  // See how long it would take for an Uber to arrive
   // Uber API URL
   var apiUrl = 'https://api.uber.com/v1/estimates/time?start_latitude='+userLat+'&start_longitude='+userLon;
 
