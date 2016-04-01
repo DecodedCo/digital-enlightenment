@@ -12,7 +12,7 @@ var rewardDate = new Date(year, month-1, day, hours, minutes);
 // Use jQuery's countdown plugin to add live counter to the p element with id 'countdown'
 jQuery('p#countdown').countdown(year + '/' + month + '/' + day+ ' ' + hours + ':' + minutes +':00',
   function(event) {
-    jQuery(this).text(event.strftime('Only %-D day%!D %H:%M:%S until your destination is revealed.'));
+    jQuery(this).text(event.strftime('Only %-D day%!D %H:%M:%S until your location is revealed.'));
   }
 );
 
