@@ -25,6 +25,6 @@ var timeReward = rewardDate.getTime();
 if ( ) {
 	jQuery('section').append('<p>You are going to Secret Location.</p>');
 	jQuery('p#countdown').hide();
-}
+} //End of if statement
 
 */
