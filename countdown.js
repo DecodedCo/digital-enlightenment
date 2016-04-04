@@ -9,21 +9,21 @@ var minutes = 30;
 // Convert into a JavaScript Date object
 var rewardDate = new Date(year, month-1, day, hours, minutes);
 
-// Use jQuery's countdown plugin to add live counter to the p element with id 'countdown'
-jQuery('p#countdown').countdown(year + '/' + month + '/' + day+ ' ' + hours + ':' + minutes +':00',
-  function(event) {
-    jQuery(this).text(event.strftime('Only %-D day%!D %H:%M:%S until your location is revealed.'));
-  }
-);
-
-// Logic
 var timeNow = Date.now();
 var timeReward = rewardDate.getTime();
 
-// If it is time
+// Logic - reveal the reward when it's time
 if ( ) {
   // Display the location in the app, at the end of the section
   jQuery('section').append('<p>You are going to Location Name!</p>');
   // Hide the live countdown
   jQuery('p#countdown').hide();
+} else {
+  // Use jQuery's countdown plugin to add live counter to the p element with id 'countdown'
+  jQuery('p#countdown').countdown(year + '/' + month + '/' + day+ ' ' + hours + ':' + minutes +':00',
+    function(event) {
+      jQuery(this).text(event.strftime('Only %-D day%!D %H:%M:%S until your location is revealed...'));
+    }
+  );
+
 } //End of if statement
