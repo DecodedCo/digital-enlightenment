@@ -1,18 +1,18 @@
 /*Start of button*/
 button{
   border-radius: 6px;
-  border: 1px solid white;
+  border: 1px solid black;
   display: inline-block;
   color: black;
   font-size: 15px;
   padding: 6px 20px;
-  background: rgba(255,255,255, 0);
+  background: white;
 }
 
 button:hover {
-  background: rgba(255,255,255);
   text-decoration: none;
-  color: white;
+  color: gray;
+  cursor: pointer;
 }
 
 button:active {
