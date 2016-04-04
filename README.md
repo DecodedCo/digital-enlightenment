@@ -26,3 +26,7 @@ Boilerplate JavaScript code to find the user's location and use Uber's API to fi
 ## trigger.js
 
 Create your own IFTTT recipe and add this JavaScript to your code. This needs to be copied into your existing countdown.js file within your logic statement.
+
+## button.css
+
+Additional CSS for the trigger button.
