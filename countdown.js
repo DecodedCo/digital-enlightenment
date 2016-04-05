@@ -16,6 +16,8 @@ var timeReward = rewardDate.getTime();
 if ( ) {
   // Display the location in the app, at the end of the section
   jQuery('section').append('<p>You are going to Location Name!</p>');
+  // Hide the countdown paragraph
+  jQuery('p#countdown').hide();
 } else {
   // Use jQuery's countdown plugin to add live counter to the p element with id 'countdown'
   jQuery('p#countdown').countdown(year + '/' + month + '/' + day+ ' ' + hours + ':' + minutes +':00',
