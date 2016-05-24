@@ -1,20 +1,22 @@
-Digital Enlightenment in a Day Boilerplate
+Digital Leadership  Boilerplate
 =========================
 
-This boilerplate helps attendees get going with their Digital Enlightenment dashboards. It includes the following files.
+This boilerplate helps attendees turbocharge their Digital Leadership apps. It includes the following files.
 
 ## HTML
 
-#### mobile.html
+#### index.html
 
-Boilerplate to optimize page for mobile web app experience
+Boilerplate to optimize page for mobile web app experience, with links to CSS.
+
+## CSS
+
+#### style.css
+
+CSS template to kick-start a responsive design
 
 ## JavaScript
 
-#### map.js
+#### script.js
 
-Boilerplate to add a Google Map with Live Traffic
-
-#### weather.js
-
-Boilerplate to add live weather data from OpenWeatherMap API
+Boilerplate to add geolocation awareness
