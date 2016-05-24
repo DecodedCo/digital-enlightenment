@@ -14,8 +14,8 @@ function foundYou(yourPosition){
   console.log(yourPosition);
 
   // Store target location
-  var targetLat = 40.7056748;
-  var targetLon = -74.2581896;
+  var targetLat = 40.7566306;
+  var targetLon = -73.9856539;
 
   // Store user's location
   var userLat = yourPosition.coords.latitude;
